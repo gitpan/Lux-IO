@@ -3,7 +3,7 @@ use 5.008001;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 require XSLoader;
 XSLoader::load('Lux::IO', $VERSION);
@@ -32,8 +32,8 @@ Lux::IO - A Perl Interface to Lux IO
 =head1 DESCRIPTION
 
 Lux IO is a yet another database manager. Lux::IO provides a Perl
-interface to it. You must note that it supports only BTree-based
-database so far, though Lux IO supports also hash-based database.
+interface to it. You must note that it supports only B+ Tree-based
+database so far, though Lux IO supports also array-based database.
 
 =head1 METHODS
 
