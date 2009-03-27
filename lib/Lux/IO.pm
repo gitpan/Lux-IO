@@ -1,9 +1,9 @@
 package Lux::IO;
-use 5.008001;
+use 5.008_001;
 use strict;
 use warnings;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 require XSLoader;
 XSLoader::load('Lux::IO', $VERSION);
@@ -22,7 +22,7 @@ Lux::IO - A Perl Interface to Lux IO
   use Lux::IO::Btree;
 
   my $bt = Lux::IO::Btree->new(Lux::IO::CLUSTER);
-  $bt->open('test', Lux::DB_CREAT);
+  $bt->open('test', Lux::IO::DB_CREAT);
   $bt->put('key', 'value', Lux::IO::OVERWRITE); #=> true
   $bt->get('key');                              #=> 'value'
   $bt->del('key');                              #=> true
@@ -34,6 +34,11 @@ Lux::IO - A Perl Interface to Lux IO
 Lux IO is a yet another database manager. Lux::IO provides a Perl
 interface to it. You must note that it supports only B+ Tree-based
 database so far, though Lux IO supports also array-based database.
+
+=head1 CAVEAT
+
+Lux::IO now supports Lux IO library above version 0.2.1. You must
+install it before trying to install this module.
 
 =head1 METHODS
 
@@ -60,20 +65,20 @@ be one of the types below:
 
 =over 4
 
-  $bt->open($filename, Lux::DB_CREAT);
+  $bt->open($filename, Lux::IO::DB_CREAT);
 
 Opens a database specified by C<$filename>. C<$oflags> can be one of
 or a combination of the flags below:
 
 =over 4
 
-=item * Lux::DB_RDONLY
+=item * Lux::IO::DB_RDONLY
 
-=item * Lux::DB_RDWR
+=item * Lux::IO::DB_RDWR
 
-=item * Lux::DB_CREAT
+=item * Lux::IO::DB_CREAT
 
-=item * Lux::DB_TRUNC
+=item * Lux::IO::DB_TRUNC
 
 =back
 
